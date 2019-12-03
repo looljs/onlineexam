@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/menu")
+@RequestMapping("/admin/menu")
 public class MenuController {
 
     //当前操作系统文件分隔符
@@ -92,12 +92,12 @@ public class MenuController {
             return map;
         }
         //判断菜单名是否可用
-        Menu menuName = menuService.findMenuByMenuName(menu.getName());
-        if (menuName != null){
-            map.put("type","error");
-            map.put("msg","菜单名已经存在");
-            return map;
-        }
+//        Menu menuName = menuService.findMenuByMenuName(menu.getName());
+//        if (menuName != null){
+//            map.put("type","error");
+//            map.put("msg","菜单名已经存在");
+//            return map;
+//        }
         //顶级菜单设置父菜单为0
         if (menu.getParentId()==null){
             menu.setParentId(0);

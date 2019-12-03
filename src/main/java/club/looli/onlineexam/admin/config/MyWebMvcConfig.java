@@ -24,8 +24,8 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginInterceptor).addPathPatterns(
                 "/**"
         ).excludePathPatterns(
-                "/system/login",
-                "/system/get_cpacha",
+                "/admin/system/login",
+                "/admin/system/get_cpacha",
                 "/static/**"
         );
     }
@@ -35,7 +35,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
 //        registry.addViewController("/role/roleList").setViewName("role/role_list");
 //
 //        registry.addViewController("/user/userList").setViewName("user/user_list");
-        registry.addViewController("/system/index").setViewName("index");
-        registry.addViewController("/system/welcome").setViewName("welcome");
+        registry.addViewController("/admin/system/index").setViewName("index");
+        registry.addViewController("/admin/system/welcome").setViewName("welcome");
     }
 }

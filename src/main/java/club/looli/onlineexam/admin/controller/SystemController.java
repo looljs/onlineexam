@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/system")
+@RequestMapping("/admin/system")
 public class SystemController {
 
     @Autowired
@@ -168,7 +168,8 @@ public class SystemController {
                                 menuList.add(m);
                             }
                         }
-                        map.put(child.getUrl().substring(child.getUrl().indexOf("/")+1,child.getUrl().lastIndexOf("/")),menuList);
+//                        String substring = child.getUrl().substring(7, child.getUrl().lastIndexOf("/"));
+                        map.put(child.getUrl().substring(7,child.getUrl().lastIndexOf("/")),menuList);
                     }
                 }
             }

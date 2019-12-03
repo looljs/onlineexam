@@ -28,7 +28,7 @@ import java.util.Map;
  *  @Description: 角色控制器
  */
 @Controller
-@RequestMapping("/role")
+@RequestMapping("/admin/role")
 public class RoleController {
 
     @Autowired

@@ -26,7 +26,7 @@ import java.util.UUID;
  * 用户管理控制器
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/admin/user")
 public class UserController {
 
     //当前操作系统分隔符

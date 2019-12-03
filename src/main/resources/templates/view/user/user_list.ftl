@@ -67,7 +67,7 @@
                 <td width="60" align="right">所属角色:</td>
                 <td>
                     <input id="add-roleId" class="easyui-combobox" name="roleId" style="width:268px;" data-options="
-                            url:'/role/list2',
+                            url:'/admin/role/list2',
                             method:'post',
                             valueField:'id',
                             textField:'name',
@@ -123,7 +123,7 @@
                 <td width="60" align="right">所属角色:</td>
                 <td>
                     <input id="edit-roleId" class="easyui-combobox" name="roleId" style="width:268px;" data-options="
-                            url:'/role/list2',
+                            url:'/admin/role/list2',
                             method:'post',
                             valueField:'id',
                             textField:'name',
@@ -185,7 +185,7 @@
         $("#process-dialog").dialog('open');
         var interval = setInterval(start,200);
         $.ajax({
-            url:'upload_photo',
+            url:'/admin/user/upload_photo',
             type:'post',
             data:formData,
             contentType:false,
@@ -226,7 +226,7 @@
         }
         var data = $("#add-form").serialize();
         $.ajax({
-            url:'add',
+            url:'/admin/user/add',
             dataType:'json',
             type:'post',
             data:data,
@@ -253,7 +253,7 @@
         }
         var data = $("#edit-form").serialize();
         $.ajax({
-            url:'edit',
+            url:'/admin/user/edit',
             dataType:'json',
             type:'post',
             data:data,
@@ -287,7 +287,7 @@
                 }
                 // console.log(ids);
                 $.ajax({
-                    url:'delete',
+                    url:'/admin/user/delete',
                     dataType:'json',
                     type:'post',
                     data:{"ids[]":ids},
@@ -393,7 +393,7 @@
      * 载入数据
      */
     $('#data-datagrid').datagrid({
-        url:'list',
+        url:'/admin/user/list',
         rownumbers:true,
         singleSelect:false,
         pageSize:20,
@@ -444,7 +444,7 @@
     $(function() {
         $.ajax({
             type: "post",
-            url: "/role/list",//请求后台数据
+            url: "/admin/role/list",//请求后台数据
             dataType: "json",
             success: function (json) {
                 // console.log(json);

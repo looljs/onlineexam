@@ -34,7 +34,7 @@
                 <div class="login-center-input">
                     <input style="width:50%;" type="text" name="cpacha" id="cpacha" value="" placeholder="请输入验证码" onfocus="this.placeholder=&#39;&#39;" onblur="this.placeholder=&#39;请输入验证码&#39;">
                     <div class="login-center-input-text">验证码</div>
-                    <img id="cpacha-img" title="点击切换验证码" style="cursor:pointer;" src="get_cpacha?vl=4&w=150&h=40&type=loginCpacha" width="110px" height="30px" onclick="changeCpacha()">
+                    <img id="cpacha-img" title="点击切换验证码" style="cursor:pointer;" src="/admin/system/get_cpacha?vl=4&w=150&h=40&type=loginCpacha" width="110px" height="30px" onclick="changeCpacha()">
                 </div>
             </div>
             <div class="login-button">
@@ -73,7 +73,7 @@
     }
 
     function changeCpacha(){
-        $("#cpacha-img").attr("src",'get_cpacha?vl=4&w=150&h=40&type=loginCpacha&t=' + new Date().getTime());
+        $("#cpacha-img").attr("src",'/admin/system/get_cpacha?vl=4&w=150&h=40&type=loginCpacha&t=' + new Date().getTime());
     }
     document.querySelector(".login-button").onclick = function(){
         var username = $("#username").val();
@@ -95,7 +95,7 @@
         addClass(document.querySelector(".sk-rotating-plane"), "active")
         document.querySelector(".login").style.display = "none"
         $.ajax({
-            url:'/system/login',
+            url:'/admin/system/login',
             data:{username:username,password:password,cpacha:cpacha},
             type:'post',
             dataType:'json',

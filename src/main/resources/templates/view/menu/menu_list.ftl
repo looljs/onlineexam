@@ -78,7 +78,7 @@
                         <td align="right">上级菜单:</td>
                         <td>
                             <input id="edit-parentId" class="easyui-combobox" name="parentId" style="width:100%;" data-options="
-                            url:'/menu/topMenus',
+                            url:'/admin/menu/topMenus',
                             method:'post',
                             valueField:'id',
                             textField:'name',
@@ -138,13 +138,13 @@
         <!-- End of easyui-dialog -->
         <script type="text/javascript">
             $('#cc').combobox({
-                url:'/menu/topMenus',
+                url:'/admin/menu/topMenus',
                 valueField:'id',
                 textField:'name',
                 method: 'post',
                 onShowPanel : function(){
                     var s=$(this).combobox('getData');
-                    $(this).combobox('options').url= '/menu/topMenus?t=' + new Date().getTime();
+                    $(this).combobox('options').url= '/admin/menu/topMenus?t=' + new Date().getTime();
                     $(this).combobox('reload');
                 }
             });
@@ -160,7 +160,7 @@
                 }
                 var data = $("#add-form").serialize();
                 $.ajax({
-                    url:'/menu/add',
+                    url:'/admin/menu/add',
                     dataType:'json',
                     type:'post',
                     data:data,
@@ -178,7 +178,7 @@
             function selectIcon(){
                 if($("#icons-table").children().length <= 0){
                     $.ajax({
-                        url:'/menu/icons',
+                        url:'/admin/menu/icons',
                         dataType:'json',
                         type:'post',
                         success:function(data){
@@ -245,7 +245,7 @@
                 }
                 var data = $("#edit-form").serialize();
                 $.ajax({
-                    url:'/menu/edit',
+                    url:'/admin/menu/edit',
                     dataType:'json',
                     type:'post',
                     data:data,
@@ -268,7 +268,7 @@
                     if(result){
                         var item = $('#data-datagrid').datagrid('getSelected');
                         $.ajax({
-                            url:'/menu/delete',
+                            url:'/admin/menu/delete',
                             dataType:'json',
                             type:'post',
                             data:{id:item.id},
@@ -316,7 +316,7 @@
                             }
                             var data = $("#add-menu-form").serialize();
                             $.ajax({
-                                url:'/menu/add',
+                                url:'/admin/menu/add',
                                 dataType:'json',
                                 type:'post',
                                 data:data,
@@ -418,7 +418,7 @@
              * 载入数据
              */
             $('#data-datagrid').treegrid({
-                url:'/menu/list',
+                url:'/admin/menu/list',
                 rownumbers:true,
                 singleSelect:true,
                 pageSize:20,

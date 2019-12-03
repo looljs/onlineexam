@@ -90,7 +90,7 @@
         }
         var data = $("#add-form").serialize();
         $.ajax({
-            url:'/role/add',
+            url:'/admin/role/add',
             dataType:'json',
             type:'post',
             data:data,
@@ -109,7 +109,7 @@
     function selectIcon(){
         if($("#icons-table").children().length <= 0){
             $.ajax({
-                url:'/role/get_icons',
+                url:'/admin/role/get_icons',
                 dataType:'json',
                 type:'post',
                 success:function(data){
@@ -154,7 +154,7 @@
         }
         var data = $("#edit-form").serialize();
         $.ajax({
-            url:'/role/edit',
+            url:'/admin/role/edit',
             dataType:'json',
             type:'post',
             data:data,
@@ -178,7 +178,7 @@
             if(result){
                 var item = $('#data-datagrid').datagrid('getSelected');
                 $.ajax({
-                    url:'/role/delete',
+                    url:'/admin/role/delete',
                     dataType:'json',
                     type:'post',
                     data:{id:item.id},
@@ -349,7 +349,7 @@
                     //
                     // }
                     $.ajax({
-                        url:'add_authority',
+                        url:'/admin/role/add_authority',
                         type:"post",
                         data:{ids:ids,roleId:roleId},
                         dataType:'json',
@@ -376,7 +376,7 @@
             onBeforeOpen:function(){
                 // 首先获取该角色已经拥有的权限
                 $.ajax({
-                    url:'get_role_authority',
+                    url:'/admin/role/get_role_authority',
                     data:{roleId:roleId},
                     type:'post',
                     dataType:'json',
@@ -405,7 +405,7 @@
      * 载入数据
      */
     $('#data-datagrid').datagrid({
-        url:'/role/listRoles',
+        url:'/admin/role/listRoles',
         rownumbers:true,
         singleSelect:true,
         pageSize:20,

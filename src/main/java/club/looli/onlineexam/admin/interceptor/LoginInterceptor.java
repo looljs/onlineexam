@@ -28,7 +28,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return false;
             }else {
                 //转发到登录页面
-                response.sendRedirect("/system/login");
+                response.sendRedirect("/admin/system/login");
             }
             return false;
         }

@@ -51,7 +51,7 @@
             return;
         }
         $.ajax({
-            url:'/system/editPassword',
+            url:'/admin/system/editPassword',
             type:'post',
             data:{newpassword:$("#newPassword").val(),oldpassword:$("#oldPassword").val()},
             dataType:'json',
