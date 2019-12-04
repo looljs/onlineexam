@@ -1,37 +1,38 @@
 package club.looli.onlineexam.admin.service;
 
+import club.looli.onlineexam.admin.entity.Exam;
 import club.looli.onlineexam.admin.entity.Examinee;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * 考生管理业务接口
+ * 考试管理业务接口
  */
-public interface ExamineeService {
+public interface ExamService {
     /**
-     * 增加一条考生记录
-     * @param examinee
+     * 增加一条考试记录
+     * @param exam
      * @return
      */
-    int add(Examinee examinee);
+    int add(Exam exam);
 
     /**
-     * 编辑一条考生记录
-     * @param examinee
+     * 编辑一条考试记录
+     * @param exam
      * @return
      */
-    int edit(Examinee examinee);
+    int edit(Exam exam);
 
     /**
      * 根据条件查询符合条件的结果
      * @param map
      * @return
      */
-    List<Examinee> findAllBySearch(Map<String,Object> map);
+    List<Exam> findAllBySearch(Map<String, Object> map);
 
     /**
-     * 根据id删除考生记录
+     * 根据id删除考试记录
      * @param id
      * @return
      */
@@ -42,18 +43,18 @@ public interface ExamineeService {
      * @param map
      * @return
      */
-    int findCount(Map<String,Object> map);
+    int findCount(Map<String, Object> map);
 
     /**
-     * 根据考生名获取考生信息
+     * 根据考试名获取考试信息
      * @param name
      * @return
      */
-    Examinee findByName(String name);
+    Exam findByName(String name);
+
     /**
-     * 获取所有考生息
+     * 获取所有考试信息
      * @return
      */
-    List<Examinee> findAll();
-
+    List<Exam> findAll();
 }

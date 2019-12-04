@@ -89,6 +89,10 @@
                 </td>
             </tr>
             <tr>
+                <td align="right">分值:</td>
+                <td><input type="text" id="add-score" name="score" class="wu-text easyui-validatebox" data-options="required:true, missingMessage:'请填写分值'"></td>
+            </tr>
+            <tr>
                 <td align="right">试题选项A:</td>
                 <td><input type="text" id="add-attrA" name="attrA" class="wu-text easyui-validatebox" data-options="required:true, missingMessage:'请填写选项A'"></td>
             </tr>
@@ -149,6 +153,10 @@
                         <option value="2">判断</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <td align="right">分值:</td>
+                <td><input type="text" id="edit-score" name="score" class="wu-text easyui-validatebox" data-options="required:true, missingMessage:'请填写分值'"></td>
             </tr>
             <tr>
                 <td align="right">试题选项A:</td>
@@ -276,10 +284,11 @@
             success:function(data){
                 if(data.type == 'success'){
                     $.messager.alert('信息提示','添加成功！','info');
-                    $("#add-name").val('');
-                    $("#add-password").val('');
-                    $("#add-truename").val('');
-                    $("#add-tel").val('');
+                    // $("#add-name").val('');
+                    // $("#add-password").val('');
+                    // $("#add-truename").val('');
+                    $("#add-score").val('');
+                    // $("#add-tel").val('');
                     $('#add-dialog').dialog('close');
                     $('#data-datagrid').datagrid('reload');
                 }else{
@@ -378,6 +387,7 @@
                 $("#edit-attrC").val(item.attrC);
                 $("#edit-attrD").val(item.attrD);
                 $("#edit-answer").val(item.answer);
+                $("#edit-score").val(item.score);
                 $("#edit-questionType").combobox('setValue',item.questionType);
                 $("#edit-subjectId").combobox('setValue',item.subjectId);
             }

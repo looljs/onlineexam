@@ -106,7 +106,7 @@ public class QuestionController {
     }
 
     /**
-     * 修改学科信息
+     * 修改试题信息
      * @param question
      * @return
      */
@@ -137,7 +137,7 @@ public class QuestionController {
     }
 
     /**
-     * 删除学科信息
+     * 删除试题信息
      * @param id
      * @return
      */

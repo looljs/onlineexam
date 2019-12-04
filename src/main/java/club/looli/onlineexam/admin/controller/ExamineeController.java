@@ -206,4 +206,25 @@ public class ExamineeController {
         return map;
     }
 
+    /**
+     * 显示考生下拉列表 + 全部
+     * @return
+     */
+    @RequestMapping(value="/list1",method=RequestMethod.POST)
+    public List<Examinee> getList1() {
+        List<Examinee> all = examineeService.findAll();
+        all.add(0,new Examinee(-1,"全部"));
+        return all;
+    }
+
+    /**
+     * 显示考生下拉列表
+     * @return
+     */
+    @RequestMapping(value="/list2",method=RequestMethod.POST)
+    public List<Examinee> getList2() {
+        List<Examinee> all = examineeService.findAll();
+        return all;
+    }
+
 }

@@ -47,4 +47,9 @@ public class ExamineeServiceImpl implements ExamineeService {
     public Examinee findByName(String name) {
         return examineeDAO.findByName(name);
     }
+
+    @Override
+    public List<Examinee> findAll() {
+        return examineeDAO.findAll();
+    }
 }

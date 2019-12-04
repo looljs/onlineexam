@@ -85,4 +85,11 @@ public interface ExamineeDAO {
      */
     @Select("select id,subjectId,name,password,trueName,tel,createTime from examinee where name = #{name}")
     Examinee findByName(String name);
+
+    /**
+     * 获取所有考生信息
+     * @return
+     */
+    @Select("select id,name from examinee")
+    List<Examinee> findAll();
 }
