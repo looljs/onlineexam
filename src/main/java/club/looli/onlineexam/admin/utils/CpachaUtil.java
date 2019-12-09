@@ -32,7 +32,7 @@ public class CpachaUtil {
 	 * 字体样式
 	 */
 	final private int[] fontStyles = new int[]{
-			Font.BOLD, Font.ITALIC|Font.BOLD
+			Font.BOLD, Font.ITALIC| Font.BOLD
 	};
 
 	/**
@@ -202,7 +202,7 @@ public class CpachaUtil {
 	 * @return 角度
 	 */
 	private double getTheta(){
-		return ((int) (Math.random()*1000) % 2 == 0 ? -1 : 1)*Math.random();
+		return ((int) (Math.random()*1000) % 2 == 0 ? -1 : 1)* Math.random();
 	}
 
 	/**

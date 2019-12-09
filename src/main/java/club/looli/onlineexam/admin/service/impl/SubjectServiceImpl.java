@@ -52,4 +52,9 @@ public class SubjectServiceImpl implements SubjectService {
     public List<Subject> findAll() {
         return subjectDAO.findAll();
     }
+
+    @Override
+    public String findById(Integer subjectId) {
+        return subjectDAO.findById(subjectId);
+    }
 }

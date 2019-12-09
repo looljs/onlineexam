@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 考试试题
+ * 考试实体
  */
 
 @Data
@@ -15,11 +15,15 @@ public class Exam {
         this.name = name;
     }
 
+    public Exam() {
+        super();
+    }
+
     private Integer id;//id
     private String name;//考试名称
     private Integer subjectId;//所属学科id
-    private String startTime;//考试开始时间
-    private String endTime;//考试结束时间
+    private Date startTime;//考试开始时间
+    private Date endTime;//考试结束时间
     private Integer totalScore;//总分
     private Integer questionNum;//试题总数
     private Integer passScore;//及格分数

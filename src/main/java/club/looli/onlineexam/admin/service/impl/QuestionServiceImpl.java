@@ -48,4 +48,19 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDAO.findByTitle(title);
     }
 
+    @Override
+    public List<Question> findAll() {
+        return questionDAO.findAll();
+    }
+
+    @Override
+    public int getQuestionNumByType(Map<String, Integer> qMap) {
+        return questionDAO.getQuestionNumByType(qMap);
+    }
+
+    @Override
+    public Question findById(Integer questionId) {
+        return questionDAO.findById(questionId);
+    }
+
 }

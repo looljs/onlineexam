@@ -119,7 +119,8 @@
     <img src="/static/easyui/images/load-page.gif" width="50%">
     <h1><font color="#15428B">加载中....</font></h1>
 </div>
-
+</body>
+</html>
 <!-- End of easyui-dialog -->
 <script type="text/javascript">
 

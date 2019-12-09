@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 试卷试题
+ * 试卷实体
  */
 
 @Data

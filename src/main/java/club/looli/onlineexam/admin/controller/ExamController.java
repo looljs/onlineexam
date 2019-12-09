@@ -1,7 +1,7 @@
 package club.looli.onlineexam.admin.controller;
 
-import club.looli.onlineexam.admin.entity.Menu;
 import club.looli.onlineexam.admin.entity.Exam;
+import club.looli.onlineexam.admin.entity.Menu;
 import club.looli.onlineexam.admin.page.Page;
 import club.looli.onlineexam.admin.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -82,26 +84,35 @@ public class ExamController {
         return map;
     }
 
-    /**
-     * 添加考试
-     * @param exam
-     * @return
-     */
+
     @RequestMapping(value="/add",method=RequestMethod.POST)
-    public Map<String, String> add(Exam exam){
+    public Map<String, String> add(
+            @RequestParam(name = "name") String name,
+            @RequestParam(name = "subjectId") Integer subjectId,
+            @RequestParam(name = "startTime") String startTime,
+            @RequestParam(name = "endTime") String endTime,
+            @RequestParam(name = "avaliableTime") Integer avaliableTime,
+            @RequestParam(name = "totalScore") Integer totalScore,
+            @RequestParam(name = "passScore") Integer passScore,
+            @RequestParam(name = "singleQuestionNum") Integer singleQuestionNum,
+            @RequestParam(name = "muiltQuestionNum") Integer muiltQuestionNum,
+            @RequestParam(name = "chargeQuestionNum") Integer chargeQuestionNum) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
         Map<String, String> map = new HashMap<String, String>();
-        if(exam == null){
-            map.put("type", "error");
-            map.put("msg", "请填写正确的考试信息！");
-            return map;
-        }
-        //判断考试名是否存在
-//        Exam byName = examService.findByname(Exam.getname());
-//        if (byName != null){
-//            map.put("type", "error");
-//            map.put("msg", "考试名称已存在，请重新填写！");
-//            return map;
-//        }
+
+        Exam exam = new Exam();
+        exam.setName(name);
+        exam.setSubjectId(subjectId);
+        exam.setStartTime(sdf.parse(startTime));
+        exam.setEndTime(sdf.parse(endTime));
+        exam.setAvaliableTime(avaliableTime);
+        exam.setTotalScore(totalScore);
+        exam.setPassScore(passScore);
+        exam.setSingleQuestionNum(singleQuestionNum);
+        exam.setChargeQuestionNum(chargeQuestionNum);
+        exam.setMuiltQuestionNum(muiltQuestionNum);
         exam.setQuestionNum(exam.getSingleQuestionNum()+exam.getMuiltQuestionNum()+exam.getChargeQuestionNum());
         exam.setCreateTime(new Date());
         exam.setPassNum(0);

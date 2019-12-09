@@ -28,7 +28,7 @@ public interface QuestionService {
      * @param map
      * @return
      */
-    List<Question> findAllBySearch(Map<String,Object> map);
+    List<Question> findAllBySearch(Map<String, Object> map);
 
     /**
      * 根据id删除试题记录
@@ -42,7 +42,7 @@ public interface QuestionService {
      * @param map
      * @return
      */
-    int findCount(Map<String,Object> map);
+    int findCount(Map<String, Object> map);
 
     /**
      * 根据试题名获取试题信息
@@ -50,4 +50,23 @@ public interface QuestionService {
      * @return
      */
     Question findByTitle(String title);
+    /**
+     * 获取所有学科信息
+     * @return
+     */
+    List<Question> findAll();
+
+    /**
+     * 获取指定题型的数量
+     * @param qMap
+     * @return
+     */
+    int getQuestionNumByType(Map<String, Integer> qMap);
+
+    /**
+     * 根据id获取题目
+     * @param questionId
+     * @return
+     */
+    Question findById(Integer questionId);
 }

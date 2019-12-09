@@ -39,7 +39,7 @@ public class MenuController {
     @RequestMapping(value = "/menuList",method = RequestMethod.GET)
     public ModelAndView list(ModelAndView modelAndView,HttpServletRequest request){
         //
-        Map<String,List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
+        Map<String, List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
         List<Menu> menuList = map1.get("menu");
 //        request.getSession().setAttribute("menu",menuList);
         //
@@ -54,13 +54,13 @@ public class MenuController {
      */
     @RequestMapping(value = "/list",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> menuList(
+    public Map<String, Object> menuList(
             Page page,
             @RequestParam(name = "menuName",defaultValue = "",required = false) String menuName,
             HttpServletRequest request
     ){
-        Map<String,Object> map = new HashMap<>();
-        Map<String,Object> search = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> search = new HashMap<>();
         search.put("start",page.getStart());
         search.put("size",page.getRows());
         search.put("name","%"+menuName+"%");
@@ -79,8 +79,8 @@ public class MenuController {
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,String> add(Menu menu){
-        Map<String,String> map = new HashMap<>();
+    public Map<String, String> add(Menu menu){
+        Map<String, String> map = new HashMap<>();
         if (menu == null){
             map.put("type","error");
             map.put("msg","系统错误");
@@ -130,8 +130,8 @@ public class MenuController {
      */
     @RequestMapping(value = "/icons",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String , Object> getIcons(HttpServletRequest request){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> getIcons(HttpServletRequest request){
+        Map<String, Object> map = new HashMap<>();
         //获取icons路径
         String property = System.getProperty("user.dir");//获取当前项目相对路径
         File file = new File( property + sepa +
@@ -170,8 +170,8 @@ public class MenuController {
      */
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> edit(Menu menu){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> edit(Menu menu){
+        Map<String, Object> map = new HashMap<>();
         menuService.edit(menu);
         map.put("type","success");
         map.put("msg","修改成功");
@@ -180,8 +180,8 @@ public class MenuController {
 
     @RequestMapping(value = "delete",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> delete(@RequestParam(name = "id") Integer id){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> delete(@RequestParam(name = "id") Integer id){
+        Map<String, Object> map = new HashMap<>();
         if (menuService.selectSubmenu(id)>0){
             map.put("type","error");
             map.put("msg","该菜单下存有子菜单，无法直接删除");

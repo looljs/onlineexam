@@ -20,4 +20,13 @@ public class Question {
     private String attrD;//选项D
     private String answer;//正确答案
     private Date createTime;//添加时间
+
+    public Question() {
+        super();
+    }
+
+    public Question(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }

@@ -51,10 +51,13 @@ public interface QuestionDAO {
             "AND subjectId = #{subjectId}",
             "</if>",
             "</where>",
+            "<if test='start != null'>",
             "limit #{start},#{size}",
+            "</if>",
+
             "</script>"
     })
-    List<Question> findAllBySearch(Map<String,Object> map);
+    List<Question> findAllBySearch(Map<String, Object> map);
 
     /**
      * 根据id删除试题记录
@@ -85,7 +88,7 @@ public interface QuestionDAO {
             "</where>",
             "</script>"
     })
-    int findCount(Map<String,Object> map);
+    int findCount(Map<String, Object> map);
 
     /**
      * 根据试题名获取试题信息
@@ -94,4 +97,39 @@ public interface QuestionDAO {
      */
     @Select("select id,subjectId,questionType,title,score,attrA,attrB,attrC,attrD,answer,createTime from question where title = #{title}")
     Question findByTitle(String title);
+
+    /**
+     * 获取所有试题信息
+     * @return
+     */
+    @Select("select id,title from question")
+    List<Question> findAll();
+
+    /**
+     * 获取指定题型的数量
+     * @param qMap
+     * @return
+     */
+    @Select({
+            "<script>",
+            "select count(id) from question",
+            "<where>",
+            "<if test='questionType != null'>",
+            "AND questionType = #{questionType}",
+            "</if>",
+            "<if test='subjectId != null'>",
+            "AND subjectId = #{subjectId}",
+            "</if>",
+            "</where>",
+            "</script>"
+    })
+    int getQuestionNumByType(Map<String, Integer> qMap);
+
+    /**
+     * 根据id获取题目
+     * @param questionId
+     * @return
+     */
+    @Select("select * from question where id = #{questionId}")
+    Question findById(Integer questionId);
 }

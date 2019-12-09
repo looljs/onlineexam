@@ -86,17 +86,17 @@ public class SystemController {
         request.getSession().setAttribute("username",null);
         request.getSession().setAttribute("menuListTop",null);
         request.getSession().setAttribute("childList",null);
-        return "redirect:/system/login";
+        return "redirect:/admin/system/login";
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,String> loginAuthentication(
+    public Map<String, String> loginAuthentication(
             @RequestParam(name = "username",defaultValue = "") String username,
             @RequestParam(name = "password",defaultValue = "") String password,
             @RequestParam(name = "cpacha",defaultValue = "") String cpacha,
             HttpServletRequest request
     ){
-        Map<String,String> maps = new HashMap<>();
+        Map<String, String> maps = new HashMap<>();
         if (StringUtils.equals("",username)){
             maps.put("type","error");
             maps.put("msg","用户名不能为空");
@@ -155,7 +155,7 @@ public class SystemController {
         request.getSession().setAttribute("menuListTop",menuListTop);
         request.getSession().setAttribute("childList",childListTop);
         //获取二级菜单下的子按钮，并设置进map
-        Map<String,List<Menu>> map = new HashMap<>();
+        Map<String, List<Menu>> map = new HashMap<>();
         for (Menu menu : menuListTop) {
             for (Menu child:
                  childListTop) {

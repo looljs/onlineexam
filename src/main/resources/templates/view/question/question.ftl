@@ -192,11 +192,16 @@
         <tr>
             <td align="right">所属科目:</td>
             <td>
-                <select id="import-subjectId" name="subjectId" class="easyui-combobox easyui-validatebox" panelHeight="auto" style="width:268px" data-options="required:true, missingMessage:'请选择考试科目'">
-<#--                    <c:forEach items="${subjectList}" var="subject">-->
-<#--                        <option value="${subject.id}">${subject.name}</option>-->
-<#--                    </c:forEach>-->
-                </select>
+                <input id="import-subjectId" class="easyui-combobox" name="subjectId" panelHeight="auto" style="width:268px;" data-options="
+                            url:'/admin/subject/list2',
+                            method:'post',
+                            valueField:'id',
+                            textField:'name',
+                            panelHeight:'auto',
+                            labelPosition: 'top',
+                            required:true,
+                            missingMessage:'请选择考试科目'
+                            ">
             </td>
             <td></td>
         </tr>

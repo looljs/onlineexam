@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (StringUtils.isEmpty(username)){
             //ajax请求
             if (StringUtils.equals(request.getHeader("X-Requested-With"),"XMLHttpRequest")){
-                Map<String,String> maps = new HashMap<>();
+                Map<String, String> maps = new HashMap<>();
                 maps.put("type","error");
                 maps.put("msg","登录信息已失效");
                 response.getWriter().write(JSONObject.toJSONString(maps));

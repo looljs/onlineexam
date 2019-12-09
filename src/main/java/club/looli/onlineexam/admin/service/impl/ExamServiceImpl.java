@@ -49,4 +49,35 @@ public class ExamServiceImpl implements ExamService {
     public List<Exam> findAll() {
         return examDAO.findAll();
     }
+
+    @Override
+    public List<Exam> findExamsInProgressBySearch(Map<String, Object> map) {
+        return examDAO.findExamsInProgressBySearch(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> findHistoryExamBySearch(String name) {
+        return examDAO.findHistoryExamBySearch(name);
+    }
+
+    @Override
+    public List<Exam> findExamsBySearch(Map<String, Object> map) {
+        return examDAO.findExamsBySearch(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> findHistoryExamsBySearch(Map<String, Object> map) {
+        return examDAO.findHistoryExamsBySearch(map);
+    }
+
+    @Override
+    public Exam findById(Integer examId) {
+        return examDAO.findById(examId);
+    }
+
+    @Override
+    public int updateExam(Exam exam) {
+        return examDAO.updateExam(exam);
+    }
+
 }

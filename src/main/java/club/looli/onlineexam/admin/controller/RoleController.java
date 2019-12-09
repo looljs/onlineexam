@@ -48,7 +48,7 @@ public class RoleController {
     @RequestMapping(value = "/roleList",method = RequestMethod.GET)
     public ModelAndView list(ModelAndView modelAndView, HttpServletRequest request){
         //
-        Map<String,List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
+        Map<String, List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
         List<Menu> menuList = map1.get("role");
 //        request.getSession().setAttribute("menu",menuList);
         //
@@ -66,19 +66,19 @@ public class RoleController {
     */
     @RequestMapping(value = "/listRoles",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String , Object> list(
+    public Map<String, Object> list(
             Page page,
             @RequestParam(name = "name",defaultValue = "") String name, HttpServletRequest request
             ){
-        Map<String,Object> map = new HashMap<>();
-        Map<String,Object> search = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> search = new HashMap<>();
         search.put("start",page.getStart());
         search.put("size",page.getRows());
         search.put("name","%"+name+"%");
         List<Role> data = roleService.findList(search);
         int count = roleService.findCount("%" + name + "%");
         //
-        Map<String,List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
+        Map<String, List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
         List<Menu> menuList = map1.get("role");
         request.getSession().setAttribute("role",menuList);
         //
@@ -112,8 +112,8 @@ public class RoleController {
     */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,String> add(Role role){
-        Map<String,String> map = new HashMap<>();
+    public Map<String, String> add(Role role){
+        Map<String, String> map = new HashMap<>();
         if (role == null){
             map.put("type","error");
             map.put("msg","系统错误");
@@ -146,8 +146,8 @@ public class RoleController {
     */
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> edit(Role role){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> edit(Role role){
+        Map<String, Object> map = new HashMap<>();
         if (role == null){
             map.put("type","error");
             map.put("msg","系统错误");
@@ -180,8 +180,8 @@ public class RoleController {
     */
     @RequestMapping(value = "delete",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> delete(@RequestParam(name = "id") Integer id){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> delete(@RequestParam(name = "id") Integer id){
+        Map<String, Object> map = new HashMap<>();
         if (roleService.hasPermission(id)>0){
             map.put("type","error");
             map.put("msg","该角色存在权限，无法直接删除");
@@ -236,7 +236,7 @@ public class RoleController {
             @RequestParam(name="ids",required=true) String ids,
             @RequestParam(name="roleId",required=true) Integer roleId
     ){
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
 //        if(StringUtils.isEmpty(ids)){
 //            map.put("type", "error");
 //            map.put("msg", "请选择相应的权限！");

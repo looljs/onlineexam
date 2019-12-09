@@ -48,7 +48,7 @@ public interface ExamineeDAO {
             "limit #{start},#{size}",
             "</script>"
     })
-    List<Examinee> findAllBySearch(Map<String,Object> map);
+    List<Examinee> findAllBySearch(Map<String, Object> map);
 
     /**
      * 根据id删除考生记录
@@ -76,7 +76,7 @@ public interface ExamineeDAO {
             "</where>",
             "</script>"
     })
-    int findCount(Map<String,Object> map);
+    int findCount(Map<String, Object> map);
 
     /**
      * 根据考生名获取考生信息

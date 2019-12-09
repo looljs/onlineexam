@@ -35,7 +35,7 @@ public interface SubjectDAO {
      * @return
      */
     @Select("select id,name,remark from subject where name like #{name} limit #{start},#{size}")
-    List<Subject> findAllBySearch(Map<String,Object> map);
+    List<Subject> findAllBySearch(Map<String, Object> map);
 
     /**
      * 根据id删除学科记录
@@ -67,4 +67,12 @@ public interface SubjectDAO {
      */
     @Select("select id,name from subject")
     List<Subject> findAll();
+
+    /**
+     * 获取当前用户学科名
+     * @param subjectId
+     * @return
+     */
+    @Select("select name from subject where id = #{subjectId}")
+    String findById(Integer subjectId);
 }

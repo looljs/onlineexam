@@ -1,7 +1,6 @@
 package club.looli.onlineexam.admin.service;
 
 import club.looli.onlineexam.admin.entity.Exam;
-import club.looli.onlineexam.admin.entity.Examinee;
 
 import java.util.List;
 import java.util.Map;
@@ -57,4 +56,22 @@ public interface ExamService {
      * @return
      */
     List<Exam> findAll();
+
+    List<Exam> findExamsInProgressBySearch(Map<String, Object> map);
+
+    List<Map<String, Object>> findHistoryExamBySearch(String name);
+
+    List<Exam> findExamsBySearch(Map<String, Object> map);
+
+    List<Map<String, Object>> findHistoryExamsBySearch(Map<String, Object> map);
+
+    Exam findById(Integer examId);
+    /**
+     * 更新考试试卷数量
+     * @param exam
+     * @return
+     */
+    int updateExam(Exam exam);
+
+
 }

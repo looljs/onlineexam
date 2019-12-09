@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+
 /**
  * 试卷管理业务接口实现
  */
@@ -41,5 +42,25 @@ public class ExamPaperServiceImpl implements ExamPaperService {
     @Override
     public int findCount(Map<String, Object> map) {
         return examPaperDAO.findCount(map);
+    }
+
+    @Override
+    public ExamPaper find(Map<String, Object> queryMap) {
+        return examPaperDAO.find(queryMap);
+    }
+
+    @Override
+    public int updateStartExamTime(ExamPaper find) {
+        return examPaperDAO.updateStartExamTime(find);
+    }
+
+    @Override
+    public int submitPaper(ExamPaper examPaper) {
+        return examPaperDAO.submitPaper(examPaper);
+    }
+
+    @Override
+    public List<Map<String, Object>> getExamStats(Integer examId) {
+        return examPaperDAO.getExamStats(examId);
     }
 }

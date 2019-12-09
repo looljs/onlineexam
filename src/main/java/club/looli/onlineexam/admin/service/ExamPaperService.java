@@ -44,4 +44,33 @@ public interface ExamPaperService {
      */
     int findCount(Map<String, Object> map);
 
+    /**
+     * 获取试卷
+     * @param queryMap
+     * @return
+     */
+    ExamPaper find(Map<String, Object> queryMap);
+
+
+
+    /**
+     * 跟新试卷开始时间
+     * @param find
+     * @return
+     */
+    int updateStartExamTime(ExamPaper find);
+
+    /**
+     * 提交试卷
+     * @param examPaper
+     * @return
+     */
+    int submitPaper(ExamPaper examPaper);
+
+    /**
+     * 获取考试信息
+     * @param examId
+     * @return
+     */
+    List<Map<String, Object>> getExamStats(Integer examId);
 }

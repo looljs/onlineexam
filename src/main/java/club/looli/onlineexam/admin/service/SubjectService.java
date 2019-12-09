@@ -28,7 +28,7 @@ public interface SubjectService {
      * @param map
      * @return
      */
-    List<Subject> findAllBySearch(Map<String,Object> map);
+    List<Subject> findAllBySearch(Map<String, Object> map);
 
     /**
      * 根据id删除学科记录
@@ -56,4 +56,6 @@ public interface SubjectService {
      * @return
      */
     List<Subject> findAll();
+
+    String findById(Integer subjectId);
 }

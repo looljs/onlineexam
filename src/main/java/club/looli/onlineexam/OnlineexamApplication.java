@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OnlineexamApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OnlineexamApplication.class, args);
+        SpringApplication.run(club.looli.onlineexam.OnlineexamApplication.class, args);
     }
 
 }

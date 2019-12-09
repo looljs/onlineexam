@@ -43,7 +43,7 @@ public class UserController {
     @RequestMapping(value = "/userList",method = RequestMethod.GET)
     public ModelAndView list(ModelAndView modelAndView, HttpServletRequest request){
         //
-        Map<String,List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
+        Map<String, List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
         List<Menu> menuList = map1.get("user");
 //        request.getSession().setAttribute("menu",menuList);
         //
@@ -65,15 +65,15 @@ public class UserController {
      */
     @RequestMapping(value = "/list",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> menuList(
+    public Map<String, Object> menuList(
             Page page,
             @RequestParam(name = "username",defaultValue = "",required = false) String username,
             @RequestParam(name = "sex", defaultValue = "" , required = false) String sex,
             @RequestParam(name = "roleId",defaultValue = "",required = false) String roleId,
             HttpServletRequest request
     ){
-        Map<String,Object> map = new HashMap<>();
-        Map<String,Object> search = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> search = new HashMap<>();
         if (sex.equals("")){
             sex = null;
         }
@@ -91,7 +91,7 @@ public class UserController {
         map.put("rows",data);
         map.put("total",count);
         //
-        Map<String,List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
+        Map<String, List<Menu>> map1 = (Map<String, List<Menu>>) request.getSession().getAttribute("map");
         List<Menu> menuList = map1.get("user");
         request.getSession().setAttribute("user",menuList);
         //
@@ -105,8 +105,8 @@ public class UserController {
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> add(User user){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> add(User user){
+        Map<String, Object> map = new HashMap<>();
         if (user == null){
             map.put("type","error");
             map.put("msg","数据绑定出错");
@@ -133,8 +133,8 @@ public class UserController {
      */
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> edit(User user){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> edit(User user){
+        Map<String, Object> map = new HashMap<>();
         if (user == null){
             map.put("type","error");
             map.put("msg","数据绑定出错");
@@ -161,8 +161,8 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
-    public Map<String,Object> delete(@RequestParam("ids[]") Integer[] ids){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> delete(@RequestParam("ids[]") Integer[] ids){
+        Map<String, Object> map = new HashMap<>();
         if (ids == null || ids.length <= 0){
             map.put("type","error");
             map.put("msg","请选择删除的对象！");
@@ -183,9 +183,9 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "/upload_photo",method = RequestMethod.POST)
-    public Map<String,Object> uploadPhoto(@RequestParam("photo") MultipartFile multipartFile,
-                                          HttpServletRequest request){
-        Map<String,Object> map = new HashMap<>();
+    public Map<String, Object> uploadPhoto(@RequestParam("photo") MultipartFile multipartFile,
+                                           HttpServletRequest request){
+        Map<String, Object> map = new HashMap<>();
         //images
         String realPath = request.getSession().getServletContext().getRealPath("/")+"images"+sepa;
         File folder = new File(realPath);
